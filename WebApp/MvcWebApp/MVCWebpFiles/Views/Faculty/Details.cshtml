@@ -1,0 +1,57 @@
+﻿@model MvcWebApp.ViewModels.FacultyFull
+
+@{
+    ViewBag.Title = "Faculty Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @Html.DisplayFor(model => model.FirstName)
+    @Html.DisplayFor(model => model.LastName)
+    (Faculty)
+</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SenecaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenecaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.Courses)
+            {
+                @Html.DisplayFor(modelItem => item.Name)<br />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FacultyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

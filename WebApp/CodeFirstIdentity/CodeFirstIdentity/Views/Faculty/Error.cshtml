@@ -1,0 +1,20 @@
+﻿@model CodeFirstIdentity.ViewModels.VM_Error
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error</h2>
+
+<dl class="dl-horizontal">
+    @foreach (var item in Model.ErrorMessages)
+    {
+        <dt>
+           @item.Key
+        </dt>
+        <dd>
+            @item.Value
+        </dd>
+    }
+
+</dl>

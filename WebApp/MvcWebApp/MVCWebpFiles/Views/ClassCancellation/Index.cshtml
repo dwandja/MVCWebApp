@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MvcWebApp.ViewModels.ClassCancellationList>
+
+@{
+    ViewBag.Title = "Class Cancellations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Class Cancellations</h2>
+<p>List of scheduled class cancellations.</p>
+
+<div>
+
+    <form action="" method="post">
+
+        <p>
+            <table style="width:100%;">
+                <tr>
+
+                    <td>
+                        <b>Only Date:</b>
+                        <input type="radio" name="date" value="all" checked />All
+                        <input type="radio" name="date" value="past" />Past
+                        <input type="radio" name="date" value="today" />Today
+                        <input type="radio" name="date" value="future" />Future
+                    </td>
+
+                    <td>
+                        <b>Only Faculty Member:</b>
+                        @Html.DropDownList("dropdown_faculty")
+                    <td />
+
+                    <td>
+                        <input type="submit" name="" value="View Filtered" />
+                    </td>
+
+                    <td>
+                        <input type="button" name="" value="View All" onclick="location.reload()" />
+                    </td>
+
+                </tr>
+            </table>
+        </p>
+
+    </form>
+
+    <p>
+
+        <i>
+            Current filter: 
+            Date = @ViewBag.filter_date,
+            Faculty ID = @ViewBag.filter_faculty
+        </i>
+
+    </p>
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty.FirstName)
+            @Html.DisplayFor(modelItem => item.Faculty.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ClassCancellationId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,76 @@
+﻿@model MvcWebApp.ViewModels.CourseFull
+
+@{
+    ViewBag.Title = "Course Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @Html.DisplayFor(model => model.Name)
+    (Course)
+</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty.FirstName) 
+            @Html.DisplayFor(model => model.Faculty.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Students)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.Students)
+            {
+                @Html.DisplayFor(modelItem => item.FirstName)
+                @(" ")
+                @Html.DisplayFor(modelItem => item.LastName)
+                <br />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

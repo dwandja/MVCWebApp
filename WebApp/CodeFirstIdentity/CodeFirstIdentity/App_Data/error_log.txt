@@ -1,0 +1,8 @@
+6/14/2014 9:08:24 AM : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Entity of type "Person" in state "Added" has the following validation errors:
+- Property: "LastName", Error: "The field Last Name must be a string with a minimum length of 3 and a maximum length of 100."
+- Property: "LastName", Error: "The Last Name field is required."
+6/14/2014 9:09:40 AM : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Entity of type "Person" in state "Added" has the following validation errors:
+- Property: "LastName", Error: "The field Last Name must be a string with a minimum length of 3 and a maximum length of 100."
+- Property: "LastName", Error: "The Last Name field is required."

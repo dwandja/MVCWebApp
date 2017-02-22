@@ -1,0 +1,45 @@
+﻿@model INT422TestTwo.ViewModels.DirectorFull
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DirectorFull</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movies)
+        </dt>
+
+        <dd>
+            <table>
+                @foreach (var movie in Model.Movies)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => movie.Title)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

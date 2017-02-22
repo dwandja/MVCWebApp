@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MvcWebApp.ViewModels.MessageList>
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Messages</h2>
+<p>List of all messages created by faculty members.</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardMessage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty.FirstName)
+            @Html.DisplayFor(modelItem => item.Faculty.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StandardMessage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MessageId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MessageId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MessageId })
+        </td>
+    </tr>
+}
+
+</table>
